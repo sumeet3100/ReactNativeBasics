@@ -13,7 +13,7 @@ class AlbumList extends Component{
 
   }
 
-  renderAlbums(){   
+  renderAlbums(){
 
 
     return this.state.albums.map(album => <Text>{album.title}</Text>);
@@ -27,9 +27,9 @@ class AlbumList extends Component{
     );
 
     if(this.state.isLoading==false)  return (
-        <View>
+      <View>
       {renderAlbums()}
-        </View>
+      </View>
       );
   }
 }
