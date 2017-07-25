@@ -1,43 +1,64 @@
 
-import React from 'react';
+import React,{ Component} from 'react';
 import {Text, TextInput, View} from 'react-native';
 import { Button, CheckBox, Divider } from 'react-native-elements';
+import Card from './Card';
+import CardComponent from './CardComponent';
 
-const Inputlogin = (props) =>{
+class Inputlogin extends Component{
+  constructor(props){
+    super(props)
+  }
+    state = {userNameText: '',password:''};
+render(){
 const {textStyle, viewStyle,textinputStyle, buttonStyle} = styles;
+
+
+
   return(
-        <View style = {viewStyle}>
+      <Card>
+
+        <CardComponent>
         <TextInput style={textinputStyle}
-        placeholder={props.userName}
-        returnKeyType = 'next'
-        keyboardType= 'email-address'
-        />
-        <TextInput style={textinputStyle}
-        placeholder={props.hintPassword}
-        returnKeyType = 'done'
-        keyboardType = 'numeric'
+          placeholder={this.props.userName}
+          returnKeyType = 'next'
+          keyboardType= 'email-address'
+          value = {this.state.userNameText}
+          onChangeText = {userNameText => this.setState({userNameText})}
         />
 
+        </CardComponent>
+
+        <CardComponent>
+          <TextInput style={textinputStyle}
+          placeholder={this.props.hintPassword}
+          returnKeyType = 'done'
+          keyboardType = 'numeric'
+          value = {this.state.password}
+          onChangeText = {password => this.setState({password})}
+        />
+        </CardComponent>
         <CheckBox
-          center
+          left
           title='Remmeber me'
           checkedIcon='dot-circle-o'
            uncheckedIcon='circle-o'
         />
 <Divider style={{ backgroundColor: 'blue' }} />
+  <View>
     <Button
 
      raised
      icon={{name: 'home', size: 20}}
      buttonStyle={{backgroundColor: 'blue', borderRadius: 2, marginTop:5, marginBottom:5 }}
      textStyle={{textAlign: 'center'}}
-     title={props.buttonTitle}
+     title={this.props.buttonTitle}
      />
 </View>
-
-
+</Card>
 
   );
+};
 };
 
 
@@ -58,11 +79,12 @@ const styles = {
   },
   textinputStyle:{
       fontSize: 20,
-      borderColor: 'gray',
+      borderColor: 'white',
        borderWidth: 1,
        height: 40,
        margin:5,
-       paddingLeft: 10
+       paddingLeft: 10,
+       flex:1
   },
   buttonStyle:{
       backgroundColor: 'blue',

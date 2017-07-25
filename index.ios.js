@@ -16,13 +16,14 @@ import Inputlogin from './src/components/inputlogin';
 import AlbumList from './src/components/AlbumList';
 
 
+
 export default class Thirdproject extends Component {
   render() {
     return (
 
       <View style={styles.container}>
        {<Header headerText ={'Albums Login'}/>}
-      {  /*<Inputlogin hintPassword={'Password'} userName={'User name'} buttonTitle={'Login'}/>*/}
+      { /*<Inputlogin hintPassword={'Password'} userName={'User name'} buttonTitle={'Login'}/>*/}
         {<AlbumList/>}
       </View>
     );
@@ -32,8 +33,8 @@ export default class Thirdproject extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'flex-start',
-    backgroundColor: '#F5FCFF',
+
+
 
   },
   welcome: {
